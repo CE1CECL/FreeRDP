@@ -105,7 +105,7 @@ void xf_Bitmap_Paint(rdpContext* context, rdpBitmap* bitmap)
 }
 
 void xf_Bitmap_Decompress(rdpContext* context, rdpBitmap* bitmap,
-		uint8* data, int width, int height, int bpp, int length, boolean compressed)
+		uint8* data, int width, int height, int bpp, int length, bolean compressed)
 {
 	uint16 size;
 
@@ -118,7 +118,7 @@ void xf_Bitmap_Decompress(rdpContext* context, rdpBitmap* bitmap,
 
 	if (compressed)
 	{
-		boolean status;
+		bolean status;
 
 		status = bitmap_decompress(data, bitmap->data, width, height, length, bpp, bpp);
 
@@ -137,7 +137,7 @@ void xf_Bitmap_Decompress(rdpContext* context, rdpBitmap* bitmap,
 	bitmap->bpp = bpp;
 }
 
-void xf_Bitmap_SetSurface(rdpContext* context, rdpBitmap* bitmap, boolean primary)
+void xf_Bitmap_SetSurface(rdpContext* context, rdpBitmap* bitmap, bolean primary)
 {
 	xfInfo* xfi = ((xfContext*) context)->xfi;
 

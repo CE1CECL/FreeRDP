@@ -70,7 +70,7 @@ typedef signed long long sint64;
 
 #include <stdbool.h>
 
-typedef int boolean;
+typedef int bolean;
 
 #else
 
@@ -83,9 +83,9 @@ typedef int boolean;
 #define false	0
 
 #ifdef _WIN32
-#define boolean BOOLEAN
+#define bolean BOLEAN
 #else
-typedef int boolean;
+typedef int bolean;
 #endif
 
 #endif /* __bool_true_false_are_defined */
@@ -100,7 +100,7 @@ typedef int boolean;
 #define false 	0
 #endif
 
-typedef int boolean;
+typedef int bolean;
 
 #endif /* __cplusplus */
 

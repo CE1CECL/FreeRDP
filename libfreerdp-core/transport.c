@@ -58,7 +58,7 @@ STREAM* transport_send_stream_init(rdpTransport* transport, int size)
 	return s;
 }
 
-boolean transport_connect(rdpTransport* transport, const char* hostname, uint16 port)
+bolean transport_connect(rdpTransport* transport, const char* hostname, uint16 port)
 {
 	return tcp_connect(transport->tcp, hostname, port);
 }
@@ -68,21 +68,21 @@ void transport_attach(rdpTransport* transport, int sockfd)
 	transport->tcp->sockfd = sockfd;
 }
 
-boolean transport_disconnect(rdpTransport* transport)
+bolean transport_disconnect(rdpTransport* transport)
 {
 	if (transport->layer == TRANSPORT_LAYER_TLS)
 		tls_disconnect(transport->tls);
 	return tcp_disconnect(transport->tcp);
 }
 
-boolean transport_connect_rdp(rdpTransport* transport)
+bolean transport_connect_rdp(rdpTransport* transport)
 {
 	/* RDP encryption */
 
 	return true;
 }
 
-boolean transport_connect_tls(rdpTransport* transport)
+bolean transport_connect_tls(rdpTransport* transport)
 {
 	if (transport->tls == NULL)
 		transport->tls = tls_new(transport->settings);
@@ -96,7 +96,7 @@ boolean transport_connect_tls(rdpTransport* transport)
 	return true;
 }
 
-boolean transport_connect_nla(rdpTransport* transport)
+bolean transport_connect_nla(rdpTransport* transport)
 {
 	if (transport->tls == NULL)
 		transport->tls = tls_new(transport->settings);
@@ -131,14 +131,14 @@ boolean transport_connect_nla(rdpTransport* transport)
 	return true;
 }
 
-boolean transport_accept_rdp(rdpTransport* transport)
+bolean transport_accept_rdp(rdpTransport* transport)
 {
 	/* RDP encryption */
 
 	return true;
 }
 
-boolean transport_accept_tls(rdpTransport* transport)
+bolean transport_accept_tls(rdpTransport* transport)
 {
 	if (transport->tls == NULL)
 		transport->tls = tls_new(transport->settings);
@@ -152,7 +152,7 @@ boolean transport_accept_tls(rdpTransport* transport)
 	return true;
 }
 
-boolean transport_accept_nla(rdpTransport* transport)
+bolean transport_accept_nla(rdpTransport* transport)
 {
 	if (transport->tls == NULL)
 		transport->tls = tls_new(transport->settings);
@@ -371,7 +371,7 @@ int transport_check_fds(rdpTransport** ptransport)
 	return 0;
 }
 
-boolean transport_set_blocking_mode(rdpTransport* transport, boolean blocking)
+bolean transport_set_blocking_mode(rdpTransport* transport, bolean blocking)
 {
 	transport->blocking = blocking;
 	return tcp_set_blocking_mode(transport->tcp, blocking);

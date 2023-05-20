@@ -97,33 +97,33 @@ struct xf_info
 	Colormap colormap;
 	int screen_number;
 	int scanline_pad;
-	boolean big_endian;
-	boolean fullscreen;
-	boolean grab_keyboard;
-	boolean unobscured;
-	boolean decorations;
-	boolean debug;
+	bolean big_endian;
+	bolean fullscreen;
+	bolean grab_keyboard;
+	bolean unobscured;
+	bolean decorations;
+	bolean debug;
 	xfWindow* window;
 	xfWorkArea workArea;
 	int current_desktop;
-	boolean remote_app;
-	boolean disconnect;
+	bolean remote_app;
+	bolean disconnect;
 	HCLRCONV clrconv;
 	Window parent_window;
 
 	HGDI_DC hdc;
-	boolean sw_gdi;
+	bolean sw_gdi;
 	uint8* primary_buffer;
 
-	boolean focused;
-	boolean mouse_active;
-	boolean mouse_motion;
-	boolean fullscreen_toggle;
+	bolean focused;
+	bolean mouse_active;
+	bolean mouse_motion;
+	bolean fullscreen_toggle;
 	uint32 keyboard_layout_id;
-	boolean pressed_keys[256];
+	bolean pressed_keys[256];
 	XModifierKeymap* modifier_map;
 	XSetWindowAttributes attribs;
-	boolean complex_regions;
+	bolean complex_regions;
 	VIRTUAL_SCREEN vscreen;
 	uint8* bmp_codec_none;
 	uint8* bmp_codec_nsc;
@@ -157,7 +157,7 @@ struct xf_info
 };
 
 void xf_toggle_fullscreen(xfInfo* xfi);
-boolean xf_post_connect(freerdp* instance);
+bolean xf_post_connect(freerdp* instance);
 
 enum XF_EXIT_CODE
 {

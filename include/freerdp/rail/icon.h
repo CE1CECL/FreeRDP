@@ -34,7 +34,7 @@ typedef struct rdp_icon_cache rdpIconCache;
 struct rdp_icon
 {
 	ICON_INFO* entry;
-	boolean big;
+	bolean big;
 	void* extra;
 };
 

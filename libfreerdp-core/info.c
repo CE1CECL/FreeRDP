@@ -61,7 +61,7 @@ void rdp_read_server_auto_reconnect_cookie(STREAM* s, rdpSettings* settings)
  * @param settings settings
  */
 
-boolean rdp_read_client_auto_reconnect_cookie(STREAM* s, rdpSettings* settings)
+bolean rdp_read_client_auto_reconnect_cookie(STREAM* s, rdpSettings* settings)
 {
 	ARC_CS_PRIVATE_PACKET* autoReconnectCookie;
 	autoReconnectCookie = settings->client_auto_reconnect_cookie;
@@ -102,7 +102,7 @@ void rdp_write_client_auto_reconnect_cookie(STREAM* s, rdpSettings* settings)
  * @param settings settings
  */
 
-boolean rdp_read_extended_info_packet(STREAM* s, rdpSettings* settings)
+bolean rdp_read_extended_info_packet(STREAM* s, rdpSettings* settings)
 {
 	uint16 clientAddressFamily;
 	uint16 cbClientAddress;
@@ -208,7 +208,7 @@ void rdp_write_extended_info_packet(STREAM* s, rdpSettings* settings)
  * @param settings settings
  */
 
-boolean rdp_read_info_packet(STREAM* s, rdpSettings* settings)
+bolean rdp_read_info_packet(STREAM* s, rdpSettings* settings)
 {
 	uint32 flags;
 	uint16 cbDomain;
@@ -303,7 +303,7 @@ void rdp_write_info_packet(STREAM* s, rdpSettings* settings)
 	uint16 cbAlternateShell;
 	uint8* workingDir;
 	uint16 cbWorkingDir;
-	boolean usedPasswordCookie = false;
+	bolean usedPasswordCookie = false;
 
 	flags = INFO_MOUSE |
 		INFO_UNICODE |
@@ -403,7 +403,7 @@ void rdp_write_info_packet(STREAM* s, rdpSettings* settings)
  * @param s stream
  */
 
-boolean rdp_recv_client_info(rdpRdp* rdp, STREAM* s)
+bolean rdp_recv_client_info(rdpRdp* rdp, STREAM* s)
 {
 	uint16 length;
 	uint16 channelId;
@@ -442,7 +442,7 @@ boolean rdp_recv_client_info(rdpRdp* rdp, STREAM* s)
  * @param rdp RDP module
  */
 
-boolean rdp_send_client_info(rdpRdp* rdp)
+bolean rdp_send_client_info(rdpRdp* rdp)
 {
 	STREAM* s;
 
@@ -520,7 +520,7 @@ void rdp_recv_logon_info_extended(rdpRdp* rdp, STREAM* s)
 	stream_seek(s, 570); /* pad */
 }
 
-boolean rdp_recv_save_session_info(rdpRdp* rdp, STREAM* s)
+bolean rdp_recv_save_session_info(rdpRdp* rdp, STREAM* s)
 {
 	uint32 infoType;
 

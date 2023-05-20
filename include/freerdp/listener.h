@@ -31,9 +31,9 @@ typedef struct rdp_freerdp_listener freerdp_listener;
 extern "C" {
 #endif
 
-typedef boolean (*psListenerOpen)(freerdp_listener* instance, const char* bind_address, uint16 port);
-typedef boolean (*psListenerGetFileDescriptor)(freerdp_listener* instance, void** rfds, int* rcount);
-typedef boolean (*psListenerCheckFileDescriptor)(freerdp_listener* instance);
+typedef bolean (*psListenerOpen)(freerdp_listener* instance, const char* bind_address, uint16 port);
+typedef bolean (*psListenerGetFileDescriptor)(freerdp_listener* instance, void** rfds, int* rcount);
+typedef bolean (*psListenerCheckFileDescriptor)(freerdp_listener* instance);
 typedef void (*psListenerClose)(freerdp_listener* instance);
 typedef void (*psPeerAccepted)(freerdp_listener* instance, freerdp_peer* client);
 

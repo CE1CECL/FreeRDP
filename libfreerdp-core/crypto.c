@@ -159,11 +159,11 @@ void crypto_cert_free(CryptoCert cert)
 	xfree(cert);
 }
 
-boolean crypto_cert_get_public_key(CryptoCert cert, rdpBlob* public_key)
+bolean crypto_cert_get_public_key(CryptoCert cert, rdpBlob* public_key)
 {
 	uint8* p;
 	int length;
-	boolean status = true;
+	bolean status = true;
 	EVP_PKEY* pkey = NULL;
 
 	pkey = X509_get_pubkey(cert->px509);
@@ -459,10 +459,10 @@ char* crypto_cert_issuer(X509* xcert)
 	return crypto_print_name(X509_get_issuer_name(xcert));
 }
 
-boolean x509_verify_certificate(CryptoCert cert, char* certificate_store_path)
+bolean x509_verify_certificate(CryptoCert cert, char* certificate_store_path)
 {
 	X509_STORE_CTX* csc;
-	boolean status = false;
+	bolean status = false;
 	X509_STORE* cert_ctx = NULL;
 	X509_LOOKUP* lookup = NULL;
 	X509* xcert = cert->px509;

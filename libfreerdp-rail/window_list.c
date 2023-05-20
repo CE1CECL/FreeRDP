@@ -29,7 +29,7 @@ void window_list_rewind(rdpWindowList* list)
 	list->iterator = list->head;
 }
 
-boolean window_list_has_next(rdpWindowList* list)
+bolean window_list_has_next(rdpWindowList* list)
 {
 	if (list->iterator != NULL)
 	{

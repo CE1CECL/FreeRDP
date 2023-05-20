@@ -67,13 +67,13 @@ struct rdpsnd_plugin
 	int n_supported_formats;
 	int current_format;
 
-	boolean expectingWave;
+	bolean expectingWave;
 	uint8 waveData[4];
 	uint16 waveDataSize;
 	uint32 wTimeStamp; /* server timestamp */
 	uint32 wave_timestamp; /* client timestamp */
 
-	boolean is_open;
+	bolean is_open;
 	uint32 close_timestamp;
 
 	uint16 fixed_format;
@@ -440,7 +440,7 @@ static void rdpsnd_register_device_plugin(rdpsndPlugin* rdpsnd, rdpsndDevicePlug
 	rdpsnd->device = device;
 }
 
-static boolean rdpsnd_load_device_plugin(rdpsndPlugin* rdpsnd, const char* name, RDP_PLUGIN_DATA* data)
+static bolean rdpsnd_load_device_plugin(rdpsndPlugin* rdpsnd, const char* name, RDP_PLUGIN_DATA* data)
 {
 	FREERDP_RDPSND_DEVICE_ENTRY_POINTS entryPoints;
 	PFREERDP_RDPSND_DEVICE_ENTRY entry;

@@ -65,7 +65,7 @@ void test_ber_write_length(void)
 	stream_free(s2);
 }
 
-/* BOOLEAN, length 1, without value */
+/* BOLEAN, length 1, without value */
 uint8 ber_universal_tag_expected[1] = "\x01";
 
 void test_ber_write_universal_tag(void)

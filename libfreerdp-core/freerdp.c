@@ -28,10 +28,10 @@
 #include <freerdp/freerdp.h>
 #include <freerdp/utils/memory.h>
 
-boolean freerdp_connect(freerdp* instance)
+bolean freerdp_connect(freerdp* instance)
 {
 	rdpRdp* rdp;
-	boolean status = false;
+	bolean status = false;
 
 	rdp = instance->context->rdp;
 
@@ -103,7 +103,7 @@ boolean freerdp_connect(freerdp* instance)
 	return status;
 }
 
-boolean freerdp_get_fds(freerdp* instance, void** rfds, int* rcount, void** wfds, int* wcount)
+bolean freerdp_get_fds(freerdp* instance, void** rfds, int* rcount, void** wfds, int* wcount)
 {
 	rdpRdp* rdp;
 
@@ -113,7 +113,7 @@ boolean freerdp_get_fds(freerdp* instance, void** rfds, int* rcount, void** wfds
 	return true;
 }
 
-boolean freerdp_check_fds(freerdp* instance)
+bolean freerdp_check_fds(freerdp* instance)
 {
 	int status;
 	rdpRdp* rdp;
@@ -138,7 +138,7 @@ static int freerdp_send_channel_data(freerdp* instance, int channel_id, uint8* d
 	return rdp_send_channel_data(instance->context->rdp, channel_id, data, size);
 }
 
-boolean freerdp_disconnect(freerdp* instance)
+bolean freerdp_disconnect(freerdp* instance)
 {
 	rdpRdp* rdp;
 
@@ -148,7 +148,7 @@ boolean freerdp_disconnect(freerdp* instance)
 	return true;
 }
 
-boolean freerdp_shall_disconnect(freerdp* instance)
+bolean freerdp_shall_disconnect(freerdp* instance)
 {
 
 	return instance->context->rdp->disconnect;

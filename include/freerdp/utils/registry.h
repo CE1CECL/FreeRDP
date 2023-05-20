@@ -35,7 +35,7 @@ enum REG_TYPE
 	REG_TYPE_NONE,
 	REG_TYPE_STRING,
 	REG_TYPE_INTEGER,
-	REG_TYPE_BOOLEAN,
+	REG_TYPE_BOLEAN,
 	REG_TYPE_SECTION
 };
 
@@ -49,7 +49,7 @@ typedef struct
 
 typedef REG_ENTRY REG_STRING;
 typedef REG_ENTRY REG_INTEGER;
-typedef REG_ENTRY REG_BOOLEAN;
+typedef REG_ENTRY REG_BOLEAN;
 typedef REG_ENTRY REG_SECTION;
 
 struct rdp_registry
@@ -58,7 +58,7 @@ struct rdp_registry
 	char* path;
 	char* file;
 	char* home;
-	boolean available;
+	bolean available;
 	struct rdp_settings* settings;
 };
 

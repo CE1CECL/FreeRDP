@@ -59,9 +59,9 @@
  * @param rdp RDP module
  */
 
-boolean rdp_client_connect(rdpRdp* rdp)
+bolean rdp_client_connect(rdpRdp* rdp)
 {
-	boolean status;
+	bolean status;
 	uint32 selectedProtocol;
 	rdpSettings* settings = rdp->settings;
 
@@ -116,12 +116,12 @@ boolean rdp_client_connect(rdpRdp* rdp)
 	return true;
 }
 
-boolean rdp_client_disconnect(rdpRdp* rdp)
+bolean rdp_client_disconnect(rdpRdp* rdp)
 {
 	return transport_disconnect(rdp->transport);
 }
 
-boolean rdp_client_redirect(rdpRdp* rdp)
+bolean rdp_client_redirect(rdpRdp* rdp)
 {
 	rdpSettings* settings = rdp->settings;
 	rdpRedirection* redirection = rdp->redirection;
@@ -185,7 +185,7 @@ boolean rdp_client_redirect(rdpRdp* rdp)
 	return rdp_client_connect(rdp);
 }
 
-static boolean rdp_client_establish_keys(rdpRdp* rdp)
+static bolean rdp_client_establish_keys(rdpRdp* rdp)
 {
 	uint8 client_random[CLIENT_RANDOM_LENGTH];
 	uint8 crypt_client_random[256 + 8];
@@ -248,7 +248,7 @@ static boolean rdp_client_establish_keys(rdpRdp* rdp)
 	return true;
 }
 
-static boolean rdp_server_establish_keys(rdpRdp* rdp, STREAM* s)
+static bolean rdp_server_establish_keys(rdpRdp* rdp, STREAM* s)
 {
 	uint8 client_random[64]; /* Should be only 32 after successfull decryption, but on failure might take up to 64 bytes. */
 	uint8 crypt_client_random[256 + 8];
@@ -315,7 +315,7 @@ static boolean rdp_server_establish_keys(rdpRdp* rdp, STREAM* s)
 	return true;
 }
 
-boolean rdp_client_connect_mcs_connect_response(rdpRdp* rdp, STREAM* s)
+bolean rdp_client_connect_mcs_connect_response(rdpRdp* rdp, STREAM* s)
 {
 	if (!mcs_recv_connect_response(rdp->mcs, s))
 	{
@@ -332,7 +332,7 @@ boolean rdp_client_connect_mcs_connect_response(rdpRdp* rdp, STREAM* s)
 	return true;
 }
 
-boolean rdp_client_connect_mcs_attach_user_confirm(rdpRdp* rdp, STREAM* s)
+bolean rdp_client_connect_mcs_attach_user_confirm(rdpRdp* rdp, STREAM* s)
 {
 	if (!mcs_recv_attach_user_confirm(rdp->mcs, s))
 		return false;
@@ -361,11 +361,11 @@ void rdp_clear_joined_channels(rdpRdp* rdp)
 	}
 }
 
-boolean rdp_client_connect_mcs_channel_join_confirm(rdpRdp* rdp, STREAM* s)
+bolean rdp_client_connect_mcs_channel_join_confirm(rdpRdp* rdp, STREAM* s)
 {
 	int i;
 	uint16 channel_id;
-	boolean all_joined = true;
+	bolean all_joined = true;
 
 	if (!mcs_recv_channel_join_confirm(rdp->mcs, s, &channel_id))
 		return false;
@@ -427,7 +427,7 @@ boolean rdp_client_connect_mcs_channel_join_confirm(rdpRdp* rdp, STREAM* s)
 	return true;
 }
 
-boolean rdp_client_connect_license(rdpRdp* rdp, STREAM* s)
+bolean rdp_client_connect_license(rdpRdp* rdp, STREAM* s)
 {
 	if (!license_recv(rdp->license, s))
 		return false;
@@ -446,7 +446,7 @@ boolean rdp_client_connect_license(rdpRdp* rdp, STREAM* s)
 	return true;
 }
 
-boolean rdp_client_connect_demand_active(rdpRdp* rdp, STREAM* s)
+bolean rdp_client_connect_demand_active(rdpRdp* rdp, STREAM* s)
 {
 	uint8* mark;
 	uint16 width;
@@ -493,7 +493,7 @@ boolean rdp_client_connect_demand_active(rdpRdp* rdp, STREAM* s)
 	return true;
 }
 
-boolean rdp_client_connect_finalize(rdpRdp* rdp)
+bolean rdp_client_connect_finalize(rdpRdp* rdp)
 {
 	/**
 	 * [MS-RDPBCGR] 1.3.1.1 - 8.
@@ -515,9 +515,9 @@ boolean rdp_client_connect_finalize(rdpRdp* rdp)
 	return true;
 }
 
-boolean rdp_server_accept_nego(rdpRdp* rdp, STREAM* s)
+bolean rdp_server_accept_nego(rdpRdp* rdp, STREAM* s)
 {
-	boolean ret;
+	bolean ret;
 
 	transport_set_blocking_mode(rdp->transport, true);
 
@@ -580,7 +580,7 @@ boolean rdp_server_accept_nego(rdpRdp* rdp, STREAM* s)
 	return true;
 }
 
-boolean rdp_server_accept_mcs_connect_initial(rdpRdp* rdp, STREAM* s)
+bolean rdp_server_accept_mcs_connect_initial(rdpRdp* rdp, STREAM* s)
 {
 	int i;
 
@@ -603,7 +603,7 @@ boolean rdp_server_accept_mcs_connect_initial(rdpRdp* rdp, STREAM* s)
 	return true;
 }
 
-boolean rdp_server_accept_mcs_erect_domain_request(rdpRdp* rdp, STREAM* s)
+bolean rdp_server_accept_mcs_erect_domain_request(rdpRdp* rdp, STREAM* s)
 {
 	if (!mcs_recv_erect_domain_request(rdp->mcs, s))
 		return false;
@@ -613,7 +613,7 @@ boolean rdp_server_accept_mcs_erect_domain_request(rdpRdp* rdp, STREAM* s)
 	return true;
 }
 
-boolean rdp_server_accept_mcs_attach_user_request(rdpRdp* rdp, STREAM* s)
+bolean rdp_server_accept_mcs_attach_user_request(rdpRdp* rdp, STREAM* s)
 {
 	if (!mcs_recv_attach_user_request(rdp->mcs, s))
 		return false;
@@ -626,11 +626,11 @@ boolean rdp_server_accept_mcs_attach_user_request(rdpRdp* rdp, STREAM* s)
 	return true;
 }
 
-boolean rdp_server_accept_mcs_channel_join_request(rdpRdp* rdp, STREAM* s)
+bolean rdp_server_accept_mcs_channel_join_request(rdpRdp* rdp, STREAM* s)
 {
 	int i;
 	uint16 channel_id;
-	boolean all_joined = true;
+	bolean all_joined = true;
 
 	if (!mcs_recv_channel_join_request(rdp->mcs, s, &channel_id))
 		return false;
@@ -658,7 +658,7 @@ boolean rdp_server_accept_mcs_channel_join_request(rdpRdp* rdp, STREAM* s)
 	return true;
 }
 
-boolean rdp_server_accept_client_keys(rdpRdp* rdp, STREAM* s)
+bolean rdp_server_accept_client_keys(rdpRdp* rdp, STREAM* s)
 {
 
 	if (!rdp_server_establish_keys(rdp, s))
@@ -669,7 +669,7 @@ boolean rdp_server_accept_client_keys(rdpRdp* rdp, STREAM* s)
 	return true;
 }
 
-boolean rdp_server_accept_client_info(rdpRdp* rdp, STREAM* s)
+bolean rdp_server_accept_client_info(rdpRdp* rdp, STREAM* s)
 {
 
 	if (!rdp_recv_client_info(rdp, s))
@@ -683,7 +683,7 @@ boolean rdp_server_accept_client_info(rdpRdp* rdp, STREAM* s)
 	return true;
 }
 
-boolean rdp_server_accept_confirm_active(rdpRdp* rdp, STREAM* s)
+bolean rdp_server_accept_confirm_active(rdpRdp* rdp, STREAM* s)
 {
 	if (!rdp_recv_confirm_active(rdp, s))
 		return false;
@@ -700,7 +700,7 @@ boolean rdp_server_accept_confirm_active(rdpRdp* rdp, STREAM* s)
 	return true;
 }
 
-boolean rdp_server_reactivate(rdpRdp* rdp)
+bolean rdp_server_reactivate(rdpRdp* rdp)
 {
 	if (!rdp_send_deactivate_all(rdp))
 		return false;

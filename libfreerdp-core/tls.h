@@ -40,19 +40,19 @@ struct rdp_tls
 	rdpCertificateStore* certificate_store;
 };
 
-boolean tls_connect(rdpTls* tls);
-boolean tls_accept(rdpTls* tls, const char* cert_file, const char* privatekey_file);
-boolean tls_disconnect(rdpTls* tls);
+bolean tls_connect(rdpTls* tls);
+bolean tls_accept(rdpTls* tls, const char* cert_file, const char* privatekey_file);
+bolean tls_disconnect(rdpTls* tls);
 
 int tls_read(rdpTls* tls, uint8* data, int length);
 int tls_write(rdpTls* tls, uint8* data, int length);
 
 CryptoCert tls_get_certificate(rdpTls* tls);
-boolean tls_verify_certificate(rdpTls* tls, CryptoCert cert, char* hostname);
+bolean tls_verify_certificate(rdpTls* tls, CryptoCert cert, char* hostname);
 void tls_print_certificate_error(char* hostname, char* fingerprint);
 void tls_print_certificate_name_mismatch_error(char* hostname, char* common_name, char** alt_names, int alt_names_count);
 
-boolean tls_print_error(char* func, SSL* connection, int value);
+bolean tls_print_error(char* func, SSL* connection, int value);
 
 rdpTls* tls_new(rdpSettings* settings);
 void tls_free(rdpTls* tls);

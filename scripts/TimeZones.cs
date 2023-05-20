@@ -99,7 +99,7 @@ namespace TimeZones
 			stream.WriteLine("{");
 			stream.WriteLine("\tconst char* Id;");
 			stream.WriteLine("\tuint32 Bias;");
-			stream.WriteLine("\tboolean SupportsDST;");
+			stream.WriteLine("\tbolean SupportsDST;");
 			stream.WriteLine("\tconst char* DisplayName;");
 			stream.WriteLine("\tconst char* StandardName;");
 			stream.WriteLine("\tconst char* DaylightName;");

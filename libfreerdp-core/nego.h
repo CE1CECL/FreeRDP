@@ -84,30 +84,30 @@ struct rdp_nego
 };
 typedef struct rdp_nego rdpNego;
 
-boolean nego_connect(rdpNego* nego);
+bolean nego_connect(rdpNego* nego);
 
 void nego_attempt_nla(rdpNego* nego);
 void nego_attempt_tls(rdpNego* nego);
 void nego_attempt_rdp(rdpNego* nego);
 
 void nego_send(rdpNego* nego);
-boolean nego_recv(rdpTransport* transport, STREAM* s, void* extra);
-boolean nego_recv_response(rdpNego* nego);
-boolean nego_read_request(rdpNego* nego, STREAM* s);
+bolean nego_recv(rdpTransport* transport, STREAM* s, void* extra);
+bolean nego_recv_response(rdpNego* nego);
+bolean nego_read_request(rdpNego* nego, STREAM* s);
 
-boolean nego_send_negotiation_request(rdpNego* nego);
+bolean nego_send_negotiation_request(rdpNego* nego);
 void nego_process_negotiation_request(rdpNego* nego, STREAM* s);
 void nego_process_negotiation_response(rdpNego* nego, STREAM* s);
 void nego_process_negotiation_failure(rdpNego* nego, STREAM* s);
-boolean nego_send_negotiation_response(rdpNego* nego);
+bolean nego_send_negotiation_response(rdpNego* nego);
 
 rdpNego* nego_new(struct rdp_transport * transport);
 void nego_free(rdpNego* nego);
 void nego_init(rdpNego* nego);
 void nego_set_target(rdpNego* nego, char* hostname, int port);
-void nego_enable_rdp(rdpNego* nego, boolean enable_rdp);
-void nego_enable_nla(rdpNego* nego, boolean enable_nla);
-void nego_enable_tls(rdpNego* nego, boolean enable_tls);
+void nego_enable_rdp(rdpNego* nego, bolean enable_rdp);
+void nego_enable_nla(rdpNego* nego, bolean enable_nla);
+void nego_enable_tls(rdpNego* nego, bolean enable_tls);
 void nego_set_routing_token(rdpNego* nego, rdpBlob* routing_token);
 void nego_set_cookie(rdpNego* nego, char* cookie);
 

@@ -129,7 +129,7 @@ void wf_hw_end_paint(rdpContext* context)
 
 }
 
-boolean wf_pre_connect(freerdp* instance)
+bolean wf_pre_connect(freerdp* instance)
 {
 	int i1;
 	wfInfo* wfi;
@@ -252,7 +252,7 @@ uint32 wfi_detect_cpu()
 	return cpu_opt;
 }
 
-boolean wf_post_connect(freerdp* instance)
+bolean wf_post_connect(freerdp* instance)
 {
 	rdpGdi* gdi;
 	wfInfo* wfi;
@@ -383,7 +383,7 @@ boolean wf_post_connect(freerdp* instance)
 	return true;
 }
 
-boolean wf_verify_certificate(freerdp* instance, char* subject, char* issuer, char* fingerprint)
+bolean wf_verify_certificate(freerdp* instance, char* subject, char* issuer, char* fingerprint)
 {
 	return true;
 }
@@ -403,12 +403,12 @@ void wf_process_channel_event(rdpChannels* channels, freerdp* instance)
 		freerdp_event_free(event);
 }
 
-boolean wf_get_fds(freerdp* instance, void** rfds, int* rcount, void** wfds, int* wcount)
+bolean wf_get_fds(freerdp* instance, void** rfds, int* rcount, void** wfds, int* wcount)
 {
 	return true;
 }
 
-boolean wf_check_fds(freerdp* instance)
+bolean wf_check_fds(freerdp* instance)
 {
 	return true;
 }

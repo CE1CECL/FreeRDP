@@ -46,10 +46,10 @@ extern "C" {
 typedef void (*pContextNew)(freerdp* instance, rdpContext* context);
 typedef void (*pContextFree)(freerdp* instance, rdpContext* context);
 
-typedef boolean (*pPreConnect)(freerdp* instance);
-typedef boolean (*pPostConnect)(freerdp* instance);
-typedef boolean (*pAuthenticate)(freerdp* instance, char** username, char** password, char** domain);
-typedef boolean (*pVerifyCertificate)(freerdp* instance, char* subject, char* issuer, char* fingerprint);
+typedef bolean (*pPreConnect)(freerdp* instance);
+typedef bolean (*pPostConnect)(freerdp* instance);
+typedef bolean (*pAuthenticate)(freerdp* instance, char** username, char** password, char** domain);
+typedef bolean (*pVerifyCertificate)(freerdp* instance, char* subject, char* issuer, char* fingerprint);
 
 typedef int (*pSendChannelData)(freerdp* instance, int channelId, uint8* data, int size);
 typedef int (*pReceiveChannelData)(freerdp* instance, int channelId, uint8* data, int size, int flags, int total_size);
@@ -102,12 +102,12 @@ struct rdp_freerdp
 FREERDP_API void freerdp_context_new(freerdp* instance);
 FREERDP_API void freerdp_context_free(freerdp* instance);
 
-FREERDP_API boolean freerdp_connect(freerdp* instance);
-FREERDP_API boolean freerdp_shall_disconnect(freerdp* instance);
-FREERDP_API boolean freerdp_disconnect(freerdp* instance);
+FREERDP_API bolean freerdp_connect(freerdp* instance);
+FREERDP_API bolean freerdp_shall_disconnect(freerdp* instance);
+FREERDP_API bolean freerdp_disconnect(freerdp* instance);
 
-FREERDP_API boolean freerdp_get_fds(freerdp* instance, void** rfds, int* rcount, void** wfds, int* wcount);
-FREERDP_API boolean freerdp_check_fds(freerdp* instance);
+FREERDP_API bolean freerdp_get_fds(freerdp* instance, void** rfds, int* rcount, void** wfds, int* wcount);
+FREERDP_API bolean freerdp_check_fds(freerdp* instance);
 
 FREERDP_API void freerdp_send_keep_alive(freerdp* instance);
 FREERDP_API uint32 freerdp_error_info(freerdp* instance);

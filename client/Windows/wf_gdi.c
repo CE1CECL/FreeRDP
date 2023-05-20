@@ -55,7 +55,7 @@ const uint8 wf_rop2_table[] =
 	R2_WHITE,       /* 1 */
 };
 
-boolean wf_set_rop2(HDC hdc, int rop2)
+bolean wf_set_rop2(HDC hdc, int rop2)
 {
 	if ((rop2 < 0x01) || (rop2 > 0x10))
 	{

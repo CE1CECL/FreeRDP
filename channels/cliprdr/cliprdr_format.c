@@ -105,7 +105,7 @@ static void cliprdr_send_format_list_response(cliprdrPlugin* cliprdr)
 void cliprdr_process_short_format_names(cliprdrPlugin* cliprdr, STREAM* s, uint32 length, uint16 flags)
 {
 	int i;
-	boolean ascii;
+	bolean ascii;
 	int num_formats;
 	CLIPRDR_FORMAT_NAME* format_name;
 
@@ -193,7 +193,7 @@ void cliprdr_process_format_list(cliprdrPlugin* cliprdr, STREAM* s, uint32 dataL
 {
 	int i;
 	uint32 format;
-	boolean supported;
+	bolean supported;
 	CLIPRDR_FORMAT_NAME* format_name;
 	RDP_CB_FORMAT_LIST_EVENT* cb_event;
 

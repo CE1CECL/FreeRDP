@@ -83,7 +83,7 @@ int credssp_ntlmssp_init(rdpCredssp* credssp)
 	{
 		if(instance->Authenticate)
 		{
-			boolean proceed = instance->Authenticate(instance,
+			bolean proceed = instance->Authenticate(instance,
 					&settings->username, &settings->password, &settings->domain);
 			if (!proceed)
 				return 0;

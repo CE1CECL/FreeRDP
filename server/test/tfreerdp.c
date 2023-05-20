@@ -34,7 +34,7 @@
 #include <freerdp/channels/wtsvc.h>
 
 static char* test_pcap_file = NULL;
-static boolean test_dump_rfx_realtime = true;
+static bolean test_dump_rfx_realtime = true;
 
 /* HL1, LH1, HH1, HL2, LH2, HH2, HL3, LH3, HH3, LL3 */
 static const unsigned int test_quantization_values[] =
@@ -54,7 +54,7 @@ struct test_peer_context
 	int icon_height;
 	int icon_x;
 	int icon_y;
-	boolean activated;
+	bolean activated;
 	WTSVirtualChannelManager* vcm;
 	void* debug_channel;
 	freerdp_thread* debug_channel_thread;
@@ -258,7 +258,7 @@ static void test_peer_draw_icon(freerdp_peer* client, int x, int y)
 	context->icon_y = y;
 }
 
-static boolean test_sleep_tsdiff(uint32 *old_sec, uint32 *old_usec, uint32 new_sec, uint32 new_usec)
+static bolean test_sleep_tsdiff(uint32 *old_sec, uint32 *old_usec, uint32 new_sec, uint32 new_usec)
 {
 	sint32 sec, usec;
 
@@ -384,7 +384,7 @@ static void* tf_debug_channel_thread_func(void* arg)
 	return 0;
 }
 
-boolean tf_peer_post_connect(freerdp_peer* client)
+bolean tf_peer_post_connect(freerdp_peer* client)
 {
 	int i;
 	testPeerContext* context = (testPeerContext*) client->context;
@@ -436,7 +436,7 @@ boolean tf_peer_post_connect(freerdp_peer* client)
 	return true;
 }
 
-boolean tf_peer_activate(freerdp_peer* client)
+bolean tf_peer_activate(freerdp_peer* client)
 {
 	testPeerContext* context = (testPeerContext*) client->context;
 

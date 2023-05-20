@@ -46,7 +46,7 @@ typedef struct _SCARD_DEVICE SCARD_DEVICE;
 #define DEBUG_SCARD(fmt, ...) DEBUG_NULL(fmt, ## __VA_ARGS__)
 #endif
 
-boolean scard_async_op(IRP*);
+bolean scard_async_op(IRP*);
 void scard_device_control(SCARD_DEVICE*, IRP*);
 
 #endif

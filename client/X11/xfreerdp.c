@@ -218,7 +218,7 @@ void xf_hw_end_paint(rdpContext* context)
 void xf_hw_desktop_resize(rdpContext* context)
 {
 	xfInfo* xfi;
-	boolean same;
+	bolean same;
 	rdpSettings* settings;
 
 	xfi = ((xfContext*) context)->xfi;
@@ -247,7 +247,7 @@ void xf_hw_desktop_resize(rdpContext* context)
 	}
 }
 
-boolean xf_get_fds(freerdp* instance, void** rfds, int* rcount, void** wfds, int* wcount)
+bolean xf_get_fds(freerdp* instance, void** rfds, int* rcount, void** wfds, int* wcount)
 {
 	xfInfo* xfi = ((xfContext*) instance->context)->xfi;
 
@@ -257,7 +257,7 @@ boolean xf_get_fds(freerdp* instance, void** rfds, int* rcount, void** wfds, int
 	return true;
 }
 
-boolean xf_check_fds(freerdp* instance, fd_set* set)
+bolean xf_check_fds(freerdp* instance, fd_set* set)
 {
 	XEvent xevent;
 	xfInfo* xfi = ((xfContext*) instance->context)->xfi;
@@ -333,7 +333,7 @@ void xf_toggle_fullscreen(xfInfo* xfi)
 	XFreePixmap(xfi->display, contents);
 }
 
-boolean xf_get_pixmap_info(xfInfo* xfi)
+bolean xf_get_pixmap_info(xfInfo* xfi)
 {
 	int i;
 	int vi_count;
@@ -447,10 +447,10 @@ int _xf_error_handler(Display* d, XErrorEvent* ev)
 	return xf_error_handler(d, ev);
 }
 
-boolean xf_pre_connect(freerdp* instance)
+bolean xf_pre_connect(freerdp* instance)
 {
 	xfInfo* xfi;
-	boolean bitmap_cache;
+	bolean bitmap_cache;
 	rdpSettings* settings;
 	int arg_parse_result;
 	
@@ -624,7 +624,7 @@ uint32 xf_detect_cpu()
 	return cpu_opt;
 }
 
-boolean xf_post_connect(freerdp* instance)
+bolean xf_post_connect(freerdp* instance)
 {
 	xfInfo* xfi;
 	XGCValues gcv;
@@ -747,7 +747,7 @@ boolean xf_post_connect(freerdp* instance)
 	return true;
 }
 
-boolean xf_authenticate(freerdp* instance, char** username, char** password, char** domain)
+bolean xf_authenticate(freerdp* instance, char** username, char** password, char** domain)
 {
 	*password = xmalloc(password_size * sizeof(char));
 
@@ -757,7 +757,7 @@ boolean xf_authenticate(freerdp* instance, char** username, char** password, cha
 	return true;
 }
 
-boolean xf_verify_certificate(freerdp* instance, char* subject, char* issuer, char* fingerprint)
+bolean xf_verify_certificate(freerdp* instance, char* subject, char* issuer, char* fingerprint)
 {
 	char answer;
 

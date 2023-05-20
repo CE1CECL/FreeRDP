@@ -84,7 +84,7 @@ int ber_get_content_length(int length)
  * @return
  */
 
-boolean ber_read_universal_tag(STREAM* s, uint8 tag, boolean pc)
+bolean ber_read_universal_tag(STREAM* s, uint8 tag, bolean pc)
 {
 	uint8 byte;
 
@@ -103,7 +103,7 @@ boolean ber_read_universal_tag(STREAM* s, uint8 tag, boolean pc)
  * @param pc primitive (false) or constructed (true)
  */
 
-void ber_write_universal_tag(STREAM* s, uint8 tag, boolean pc)
+void ber_write_universal_tag(STREAM* s, uint8 tag, bolean pc)
 {
 	stream_write_uint8(s, (BER_CLASS_UNIV | BER_PC(pc)) | (BER_TAG_MASK & tag));
 }
@@ -115,7 +115,7 @@ void ber_write_universal_tag(STREAM* s, uint8 tag, boolean pc)
  * @param length length
  */
 
-boolean ber_read_application_tag(STREAM* s, uint8 tag, int* length)
+bolean ber_read_application_tag(STREAM* s, uint8 tag, int* length)
 {
 	uint8 byte;
 
@@ -168,7 +168,7 @@ void ber_write_application_tag(STREAM* s, uint8 tag, int length)
 	}
 }
 
-boolean ber_read_contextual_tag(STREAM* s, uint8 tag, int* length, boolean pc)
+bolean ber_read_contextual_tag(STREAM* s, uint8 tag, int* length, bolean pc)
 {
 	uint8 byte;
 
@@ -185,7 +185,7 @@ boolean ber_read_contextual_tag(STREAM* s, uint8 tag, int* length, boolean pc)
 	return true;
 }
 
-int ber_write_contextual_tag(STREAM* s, uint8 tag, int length, boolean pc)
+int ber_write_contextual_tag(STREAM* s, uint8 tag, int length, bolean pc)
 {
 	stream_write_uint8(s, (BER_CLASS_CTXT | BER_PC(pc)) | (BER_TAG_MASK & tag));
 	return ber_write_length(s, length) + 1;
@@ -196,7 +196,7 @@ int ber_skip_contextual_tag(int length)
 	return _ber_skip_length(length) + 1;
 }
 
-boolean ber_read_sequence_tag(STREAM* s, int* length)
+bolean ber_read_sequence_tag(STREAM* s, int* length)
 {
 	uint8 byte;
 
@@ -232,7 +232,7 @@ int ber_skip_sequence_tag(int length)
 	return 1 + _ber_skip_length(length);
 }
 
-boolean ber_read_enumerated(STREAM* s, uint8* enumerated, uint8 count)
+bolean ber_read_enumerated(STREAM* s, uint8* enumerated, uint8 count)
 {
 	int length;
 
@@ -258,7 +258,7 @@ void ber_write_enumerated(STREAM* s, uint8 enumerated, uint8 count)
 	stream_write_uint8(s, enumerated);
 }
 
-boolean ber_read_bit_string(STREAM* s, int* length, uint8* padding)
+bolean ber_read_bit_string(STREAM* s, int* length, uint8* padding)
 {
 	ber_read_universal_tag(s, BER_TAG_BIT_STRING, false);
 	ber_read_length(s, length);
@@ -267,7 +267,7 @@ boolean ber_read_bit_string(STREAM* s, int* length, uint8* padding)
 	return true;
 }
 
-boolean ber_read_octet_string(STREAM* s, int* length)
+bolean ber_read_octet_string(STREAM* s, int* length)
 {
 	ber_read_universal_tag(s, BER_TAG_OCTET_STRING, false);
 	ber_read_length(s, length);
@@ -302,17 +302,17 @@ int ber_skip_octet_string(int length)
 }
 
 /**
- * Read a BER BOOLEAN
+ * Read a BER BOLEAN
  * @param s
  * @param value
  */
 
-boolean ber_read_boolean(STREAM* s, boolean* value)
+bolean ber_read_bolean(STREAM* s, bolean* value)
 {
 	int length;
 	uint8 v;
 
-	if (!ber_read_universal_tag(s, BER_TAG_BOOLEAN, false))
+	if (!ber_read_universal_tag(s, BER_TAG_BOLEAN, false))
 		return false;
 	ber_read_length(s, &length);
 	if (length != 1)
@@ -323,19 +323,19 @@ boolean ber_read_boolean(STREAM* s, boolean* value)
 }
 
 /**
- * Write a BER BOOLEAN
+ * Write a BER BOLEAN
  * @param s
  * @param value
  */
 
-void ber_write_boolean(STREAM* s, boolean value)
+void ber_write_bolean(STREAM* s, bolean value)
 {
-	ber_write_universal_tag(s, BER_TAG_BOOLEAN, false);
+	ber_write_universal_tag(s, BER_TAG_BOLEAN, false);
 	ber_write_length(s, 1);
 	stream_write_uint8(s, (value == true) ? 0xFF : 0);
 }
 
-boolean ber_read_integer(STREAM* s, uint32* value)
+bolean ber_read_integer(STREAM* s, uint32* value)
 {
 	int length;
 
@@ -424,7 +424,7 @@ int ber_skip_integer(uint32 value)
 	return 0;
 }
 
-boolean ber_read_integer_length(STREAM* s, int* length)
+bolean ber_read_integer_length(STREAM* s, int* length)
 {
 	ber_read_universal_tag(s, BER_TAG_INTEGER, false);
 	ber_read_length(s, length);

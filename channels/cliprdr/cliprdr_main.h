@@ -36,11 +36,11 @@ struct cliprdr_plugin
 {
 	rdpSvcPlugin plugin;
 	UNICONV* uniconv;
-	boolean received_caps;
-	boolean use_long_format_names;
-	boolean stream_fileclip_enabled;
-	boolean fileclip_no_file_paths;
-	boolean can_lock_clipdata;
+	bolean received_caps;
+	bolean use_long_format_names;
+	bolean stream_fileclip_enabled;
+	bolean fileclip_no_file_paths;
+	bolean can_lock_clipdata;
 	CLIPRDR_FORMAT_NAME* format_names;
 	int num_format_names;
 };

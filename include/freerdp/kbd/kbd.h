@@ -35,8 +35,8 @@ typedef struct rdp_keyboard_layout
 
 FREERDP_API rdpKeyboardLayout* freerdp_kbd_get_layouts(int types);
 FREERDP_API uint32 freerdp_kbd_init(void *dpy, uint32 keyboard_layout_id);
-FREERDP_API uint8 freerdp_kbd_get_scancode_by_keycode(uint8 keycode, boolean* extended);
-FREERDP_API uint8 freerdp_kbd_get_keycode_by_scancode(uint8 scancode, boolean extended);
-FREERDP_API uint8 freerdp_kbd_get_scancode_by_virtualkey(int vkcode, boolean* extended);
+FREERDP_API uint8 freerdp_kbd_get_scancode_by_keycode(uint8 keycode, bolean* extended);
+FREERDP_API uint8 freerdp_kbd_get_keycode_by_scancode(uint8 scancode, bolean extended);
+FREERDP_API uint8 freerdp_kbd_get_scancode_by_virtualkey(int vkcode, bolean* extended);
 
 #endif /* __FREERDP_KBD_H */

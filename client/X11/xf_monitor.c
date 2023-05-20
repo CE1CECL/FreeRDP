@@ -31,7 +31,7 @@
 
 /* See MSDN Section on Multiple Display Monitors: http://msdn.microsoft.com/en-us/library/dd145071 */
 
-boolean xf_detect_monitors(xfInfo* xfi, rdpSettings* settings)
+bolean xf_detect_monitors(xfInfo* xfi, rdpSettings* settings)
 {
 	int i;
 	VIRTUAL_SCREEN* vscreen;

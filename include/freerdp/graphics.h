@@ -35,8 +35,8 @@ typedef void (*pBitmap_New)(rdpContext* context, rdpBitmap* bitmap);
 typedef void (*pBitmap_Free)(rdpContext* context, rdpBitmap* bitmap);
 typedef void (*pBitmap_Paint)(rdpContext* context, rdpBitmap* bitmap);
 typedef void (*pBitmap_Decompress)(rdpContext* context, rdpBitmap* bitmap,
-		uint8* data, int width, int height, int bpp, int length, boolean compressed);
-typedef void (*pBitmap_SetSurface)(rdpContext* context, rdpBitmap* bitmap, boolean primary);
+		uint8* data, int width, int height, int bpp, int length, bolean compressed);
+typedef void (*pBitmap_SetSurface)(rdpContext* context, rdpBitmap* bitmap, bolean primary);
 
 struct rdp_bitmap
 {
@@ -60,8 +60,8 @@ struct rdp_bitmap
 	uint8* data; /* 25 */
 	uint32 paddingB[32 - 26]; /* 26 */
 
-	boolean compressed; /* 32 */
-	boolean ephemeral; /* 33 */
+	bolean compressed; /* 32 */
+	bolean ephemeral; /* 33 */
 	uint32 paddingC[64 - 34]; /* 34 */
 };
 
@@ -70,11 +70,11 @@ FREERDP_API void Bitmap_New(rdpContext* context, rdpBitmap* bitmap);
 FREERDP_API void Bitmap_Free(rdpContext* context, rdpBitmap* bitmap);
 FREERDP_API void Bitmap_Register(rdpContext* context, rdpBitmap* bitmap);
 FREERDP_API void Bitmap_Decompress(rdpContext* context, rdpBitmap* bitmap,
-		uint8* data, int width, int height, int bpp, int length, boolean compressed);
+		uint8* data, int width, int height, int bpp, int length, bolean compressed);
 FREERDP_API void Bitmap_SetRectangle(rdpContext* context, rdpBitmap* bitmap,
 		uint16 left, uint16 top, uint16 right, uint16 bottom);
 FREERDP_API void Bitmap_SetDimensions(rdpContext* context, rdpBitmap* bitmap, uint16 width, uint16 height);
-FREERDP_API void Bitmap_SetSurface(rdpContext* context, rdpBitmap* bitmap, boolean primary);
+FREERDP_API void Bitmap_SetSurface(rdpContext* context, rdpBitmap* bitmap, bolean primary);
 
 /* Pointer Class */
 

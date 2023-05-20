@@ -69,7 +69,7 @@ static void rdpsnd_pulse_context_state_callback(pa_context* context, void* userd
 	}
 }
 
-static boolean rdpsnd_pulse_connect(rdpsndDevicePlugin* device)
+static bolean rdpsnd_pulse_connect(rdpsndDevicePlugin* device)
 {
 	rdpsndPulsePlugin* pulse = (rdpsndPulsePlugin*)device;
 	pa_context_state_t state;
@@ -332,7 +332,7 @@ static void rdpsnd_pulse_free(rdpsndDevicePlugin* device)
 	xfree(pulse);
 }
 
-static boolean rdpsnd_pulse_format_supported(rdpsndDevicePlugin* device, rdpsndFormat* format)
+static bolean rdpsnd_pulse_format_supported(rdpsndDevicePlugin* device, rdpsndFormat* format)
 {
 	rdpsndPulsePlugin* pulse = (rdpsndPulsePlugin*)device;
 

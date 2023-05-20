@@ -181,7 +181,7 @@ struct rdp_channel
 	char name[8]; /* ui sets */
 	int options; /* ui sets */
 	int channel_id; /* core sets */
-	boolean joined; /* client has joined the channel */
+	bolean joined; /* client has joined the channel */
 	void* handle; /* just for ui */
 };
 typedef struct rdp_channel rdpChannel;
@@ -206,7 +206,7 @@ typedef struct _BITMAP_CACHE_CELL_INFO BITMAP_CACHE_CELL_INFO;
 struct _BITMAP_CACHE_V2_CELL_INFO
 {
 	uint32 numEntries;
-	boolean persistent;
+	bolean persistent;
 };
 typedef struct _BITMAP_CACHE_V2_CELL_INFO BITMAP_CACHE_V2_CELL_INFO;
 
@@ -251,13 +251,13 @@ struct rdp_settings
 	uint32 selected_protocol; /* 26 */
 	uint32 encryption_method; /* 27 */
 	uint32 encryption_level; /* 28 */
-	boolean authentication; /* 29 */
+	bolean authentication; /* 29 */
 	uint32 negotiationFlags; /* 30 */
 	uint32 paddingB[48 - 31]; /* 31 */
 
 	/* Connection Settings */
 	uint32 port; /* 48 */
-	boolean ipv6; /* 49 */
+	bolean ipv6; /* 49 */
 	char* hostname; /* 50 */
 	char* username; /* 51 */
 	char* password; /* 52 */
@@ -266,29 +266,29 @@ struct rdp_settings
 	char* directory; /* 55 */
 	char* ip_address; /* 56 */
 	char* client_dir; /* 57 */
-	boolean autologon; /* 58 */
-	boolean compression; /* 59 */
+	bolean autologon; /* 58 */
+	bolean compression; /* 59 */
 	uint32 performance_flags; /* 60 */
 	rdpBlob* password_cookie; /* 61 */
 	char* kerberos_kdc; /* 62 */
 	char* kerberos_realm; /* 63 */
-	boolean ts_gateway; /* 64 */
+	bolean ts_gateway; /* 64 */
 	char* tsg_hostname; /* 65 */
 	char* tsg_username; /* 66 */
 	char* tsg_password; /* 67 */
-	boolean local; /* 68 */
-	boolean authentication_only; /* 69 */
-	boolean from_stdin; /* 70 */
+	bolean local; /* 68 */
+	bolean authentication_only; /* 69 */
+	bolean from_stdin; /* 70 */
 	uint32 paddingC[80 - 71]; /* 71 */
 
 	/* User Interface Parameters */
-	boolean sw_gdi; /* 80 */
-	boolean workarea; /* 81 */
-	boolean fullscreen; /* 82 */
-	boolean grab_keyboard; /* 83 */
-	boolean decorations; /* 84 */
+	bolean sw_gdi; /* 80 */
+	bolean workarea; /* 81 */
+	bolean fullscreen; /* 82 */
+	bolean grab_keyboard; /* 83 */
+	bolean decorations; /* 84 */
 	uint32 percent_screen; /* 85 */
-	boolean mouse_motion; /* 86 */
+	bolean mouse_motion; /* 86 */
 	char* window_title; /* 87 */
 	uint64 parent_window_xid; /* 88 */
 	char* wm_class; /* 89 */
@@ -299,38 +299,38 @@ struct rdp_settings
 	uint32 share_id; /* 113 */
 	uint32 pdu_source; /* 114 */
 	UNICONV* uniconv; /* 115 */
-	boolean server_mode; /* 116 */
+	bolean server_mode; /* 116 */
 	char* config_path; /* 117 */
 	char* current_path; /* 118 */
 	char* development_path; /* 119 */
-	boolean development_mode; /* 120 */
+	bolean development_mode; /* 120 */
 	uint32 paddingE[144 - 121]; /* 121 */
 
 	/* Security */
-	boolean encryption; /* 144 */
-	boolean tls_security; /* 145 */
-	boolean nla_security; /* 146 */
-	boolean rdp_security; /* 147 */
+	bolean encryption; /* 144 */
+	bolean tls_security; /* 145 */
+	bolean nla_security; /* 146 */
+	bolean rdp_security; /* 147 */
 	uint32 ntlm_version; /* 148 */
-	boolean secure_checksum; /* 149 */
+	bolean secure_checksum; /* 149 */
 	uint32 paddingF[160 - 150]; /* 150 */
 
 	/* Session */
-	boolean console_audio; /* 160 */
-	boolean console_session; /* 161 */
+	bolean console_audio; /* 160 */
+	bolean console_session; /* 161 */
 	uint32 redirected_session_id; /* 162 */
-	boolean audio_playback; /* 163 */
-	boolean audio_capture; /* 164 */
+	bolean audio_playback; /* 163 */
+	bolean audio_capture; /* 164 */
 	uint32 paddingG[176 - 165]; /* 165 */
 
 	/* Output Control */
-	boolean refresh_rect; /* 176 */
-	boolean suppress_output; /* 177 */
-	boolean desktop_resize; /* 178 */
+	bolean refresh_rect; /* 176 */
+	bolean suppress_output; /* 177 */
+	bolean desktop_resize; /* 178 */
 	uint32 paddingH[192 - 179]; /* 179 */
 
 	/* Reconnection */
-	boolean auto_reconnection; /* 192 */
+	bolean auto_reconnection; /* 192 */
 	ARC_CS_PRIVATE_PACKET* client_auto_reconnect_cookie; /* 193 */
 	ARC_SC_PRIVATE_PACKET* server_auto_reconnect_cookie; /* 194 */
 	uint32 paddingI[208 - 195]; /* 195 */
@@ -343,18 +343,18 @@ struct rdp_settings
 	uint32 os_major_type; /* 216 */
 	uint32 os_minor_type; /* 217 */
 	uint32 vc_chunk_size; /* 218 */
-	boolean sound_beeps; /* 219 */
-	boolean smooth_fonts; /* 220 */
-	boolean frame_marker; /* 221 */
-	boolean fastpath_input; /* 222 */
-	boolean fastpath_output; /* 223 */
+	bolean sound_beeps; /* 219 */
+	bolean smooth_fonts; /* 220 */
+	bolean frame_marker; /* 221 */
+	bolean fastpath_input; /* 222 */
+	bolean fastpath_output; /* 223 */
 	uint8 received_caps[32]; /* 224 (8) */
 	uint8 order_support[32]; /* 232 (8) */
-	boolean surface_commands; /* 240 */
-	boolean disable_wallpaper; /* 241 */
-	boolean disable_full_window_drag; /* 242 */
-	boolean disable_menu_animations; /* 243 */
-	boolean disable_theming; /* 244 */
+	bolean surface_commands; /* 240 */
+	bolean disable_wallpaper; /* 241 */
+	bolean disable_full_window_drag; /* 242 */
+	bolean disable_menu_animations; /* 243 */
+	bolean disable_theming; /* 244 */
 	uint32 connection_type; /* 245 */
 	uint32 multifrag_max_request_size; /* 246 */
 	uint32 paddingK[248 - 247]; /* 247 */
@@ -366,7 +366,7 @@ struct rdp_settings
 	char client_product_id[32]; /* 258 (8) */
 	rdpBlob* server_random; /* 266 */
 	rdpBlob* server_certificate; /* 267 */
-	boolean ignore_certificate; /* 268 */
+	bolean ignore_certificate; /* 268 */
 	rdpCertificate* server_cert; /* 269 */
 	char* rdp_key_file; /* 270 */
 	rdpKey* server_key; /* 271 */
@@ -374,68 +374,68 @@ struct rdp_settings
 	uint32 paddingL[280 - 273]; /* 273 */
 
 	/* Codecs */
-	boolean rfx_codec; /* 280 */
-	boolean ns_codec; /* 281 */
+	bolean rfx_codec; /* 280 */
+	bolean ns_codec; /* 281 */
 	uint32 rfx_codec_id; /* 282 */
 	uint32 ns_codec_id; /* 283 */
 	uint32 rfx_codec_mode; /* 284 */
-	boolean frame_acknowledge; /* 285 */
+	bolean frame_acknowledge; /* 285 */
 	uint32 paddingM[296 - 286]; /* 286 */
 
 	/* Recording */
-	boolean dump_rfx; /* 296 */
-	boolean play_rfx; /* 297 */
+	bolean dump_rfx; /* 296 */
+	bolean play_rfx; /* 297 */
 	char* dump_rfx_file; /* 298 */
 	char* play_rfx_file; /* 299 */
 	uint32 paddingN[312 - 300]; /* 300 */
 
 	/* RemoteApp */
-	boolean remote_app; /* 312 */
+	bolean remote_app; /* 312 */
 	uint32 num_icon_caches; /* 313 */
 	uint32 num_icon_cache_entries; /* 314 */
-	boolean rail_langbar_supported; /* 315 */
+	bolean rail_langbar_supported; /* 315 */
 	uint32 paddingO[320 - 316]; /* 316 */
 
 	/* Pointer */
-	boolean large_pointer; /* 320 */
-	boolean color_pointer; /* 321 */
+	bolean large_pointer; /* 320 */
+	bolean color_pointer; /* 321 */
 	uint32 pointer_cache_size; /* 322 */
 	uint32 paddingP[328 - 323]; /* 323 */
 
 	/* Bitmap Cache */
-	boolean bitmap_cache; /* 328 */
-	boolean bitmap_cache_v3; /* 329 */
-	boolean persistent_bitmap_cache; /* 330 */
+	bolean bitmap_cache; /* 328 */
+	bolean bitmap_cache_v3; /* 329 */
+	bolean persistent_bitmap_cache; /* 330 */
 	uint32 bitmapCacheV2NumCells; /* 331 */
 	BITMAP_CACHE_V2_CELL_INFO* bitmapCacheV2CellInfo; /* 332 */
 	uint32 paddingQ[344 - 333]; /* 333 */
 
 	/* Offscreen Bitmap Cache */
-	boolean offscreen_bitmap_cache; /* 344 */
+	bolean offscreen_bitmap_cache; /* 344 */
 	uint32 offscreen_bitmap_cache_size; /* 345 */
 	uint32 offscreen_bitmap_cache_entries; /* 346 */
 	uint32 paddingR[352 - 347]; /* 347 */
 
 	/* Glyph Cache */
-	boolean glyph_cache; /* 352 */
+	bolean glyph_cache; /* 352 */
 	uint32 glyphSupportLevel; /* 353 */
 	GLYPH_CACHE_DEFINITION* glyphCache; /* 354 */
 	GLYPH_CACHE_DEFINITION* fragCache; /* 355 */
 	uint32 paddingS[360 - 356]; /* 356 */
 
 	/* Draw Nine Grid */
-	boolean draw_nine_grid; /* 360 */
+	bolean draw_nine_grid; /* 360 */
 	uint32 draw_nine_grid_cache_size; /* 361 */
 	uint32 draw_nine_grid_cache_entries; /* 362 */
 	uint32 paddingT[368 - 363]; /* 363 */
 
 	/* Draw GDI+ */
-	boolean draw_gdi_plus; /* 368 */
-	boolean draw_gdi_plus_cache; /* 369 */
+	bolean draw_gdi_plus; /* 368 */
+	bolean draw_gdi_plus_cache; /* 369 */
 	uint32 paddingU[376 - 370]; /* 370 */
 
 	/* Desktop Composition */
-	boolean desktop_composition; /* 376 */
+	bolean desktop_composition; /* 376 */
 	uint32 paddingV[384 - 377]; /* 377 */
 
 	/* Channels */

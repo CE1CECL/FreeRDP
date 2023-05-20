@@ -103,7 +103,7 @@ void xf_SendClientEvent(xfInfo *xfi, xfWindow* window, Atom atom, unsigned int n
        va_end(argp);
 }
 
-void xf_SetWindowFullscreen(xfInfo* xfi, xfWindow* window, boolean fullscreen)
+void xf_SetWindowFullscreen(xfInfo* xfi, xfWindow* window, bolean fullscreen)
 {
 	if (fullscreen)
 	{
@@ -118,7 +118,7 @@ void xf_SetWindowFullscreen(xfInfo* xfi, xfWindow* window, boolean fullscreen)
 
 /* http://tronche.com/gui/x/xlib/window-information/XGetWindowProperty.html */
 
-boolean xf_GetWindowProperty(xfInfo* xfi, Window window, Atom property, int length,
+bolean xf_GetWindowProperty(xfInfo* xfi, Window window, Atom property, int length,
 		unsigned long* nitems, unsigned long* bytes, uint8** prop)
 {
 	int status;
@@ -144,9 +144,9 @@ boolean xf_GetWindowProperty(xfInfo* xfi, Window window, Atom property, int leng
 	return true;
 }
 
-boolean xf_GetCurrentDesktop(xfInfo* xfi)
+bolean xf_GetCurrentDesktop(xfInfo* xfi)
 {
-	boolean status;
+	bolean status;
 	unsigned long nitems;
 	unsigned long bytes;
 	unsigned char* prop;
@@ -164,10 +164,10 @@ boolean xf_GetCurrentDesktop(xfInfo* xfi)
 	return true;
 }
 
-boolean xf_GetWorkArea(xfInfo* xfi)
+bolean xf_GetWorkArea(xfInfo* xfi)
 {
 	long* plong;
-	boolean status;
+	bolean status;
 	unsigned long nitems;
 	unsigned long bytes;
 	unsigned char* prop;
@@ -199,7 +199,7 @@ boolean xf_GetWorkArea(xfInfo* xfi)
 	return true;
 }
 
-void xf_SetWindowDecorations(xfInfo* xfi, xfWindow* window, boolean show)
+void xf_SetWindowDecorations(xfInfo* xfi, xfWindow* window, bolean show)
 {
 	PropMotifWmHints hints;
 
@@ -258,7 +258,7 @@ void xf_SetWindowStyle(xfInfo* xfi, xfWindow* window, uint32 style, uint32 ex_st
 
 }
 
-xfWindow* xf_CreateDesktopWindow(xfInfo* xfi, char* name, int width, int height, boolean decorations)
+xfWindow* xf_CreateDesktopWindow(xfInfo* xfi, char* name, int width, int height, bolean decorations)
 {
 	xfWindow* window;
 	XEvent xevent;
@@ -564,7 +564,7 @@ void xf_EndLocalMoveSize(xfInfo *xfi, xfWindow *window)
 
 void xf_MoveWindow(xfInfo* xfi, xfWindow* window, int x, int y, int width, int height)
 {
-	boolean resize = false;
+	bolean resize = false;
 
 	if ((width * height) < 1)
 		return;
@@ -731,11 +731,11 @@ void xf_UpdateWindowArea(xfInfo* xfi, xfWindow* window, int x, int y, int width,
 	XFlush(xfi->display);
 }
 
-boolean xf_IsWindowBorder(xfInfo* xfi, xfWindow* xfw, int x, int y)
+bolean xf_IsWindowBorder(xfInfo* xfi, xfWindow* xfw, int x, int y)
 {
 	rdpWindow* wnd;
-	boolean clientArea = false;
-	boolean windowArea = false;
+	bolean clientArea = false;
+	bolean windowArea = false;
 
 	wnd = xfw->window;
 

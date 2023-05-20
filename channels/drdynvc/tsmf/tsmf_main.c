@@ -91,7 +91,7 @@ void tsmf_playback_ack(IWTSVirtualChannelCallback* pChannelCallback,
 	stream_free(s);
 }
 
-boolean tsmf_push_event(IWTSVirtualChannelCallback* pChannelCallback,
+bolean tsmf_push_event(IWTSVirtualChannelCallback* pChannelCallback,
 	RDP_EVENT* event)
 {
 	int error;

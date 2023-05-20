@@ -311,7 +311,7 @@ typedef struct _virtualKey
 	/* Windows "scan code", aka keycode in RDP */
 	unsigned char scancode;
 
-	/* Windows "extended" flag, boolean */
+	/* Windows "extended" flag, bolean */
 	unsigned char extended;
 
 	/* Windows virtual key name */

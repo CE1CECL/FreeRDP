@@ -29,7 +29,7 @@ typedef struct _DISK_FILE DISK_FILE;
 struct _DISK_FILE
 {
 	uint32 id;
-	boolean is_dir;
+	bolean is_dir;
 	int fd;
 	int err;
 	DIR* dir;
@@ -37,19 +37,19 @@ struct _DISK_FILE
 	char* fullpath;
 	char* filename;
 	char* pattern;
-	boolean delete_pending;
+	bolean delete_pending;
 };
 
 DISK_FILE* disk_file_new(const char* base_path, const char* path, uint32 id,
 	uint32 DesiredAccess, uint32 CreateDisposition, uint32 CreateOptions);
 void disk_file_free(DISK_FILE* file);
 
-boolean disk_file_seek(DISK_FILE* file, uint64 Offset);
-boolean disk_file_read(DISK_FILE* file, uint8* buffer, uint32* Length);
-boolean disk_file_write(DISK_FILE* file, uint8* buffer, uint32 Length);
-boolean disk_file_query_information(DISK_FILE* file, uint32 FsInformationClass, STREAM* output);
-boolean disk_file_set_information(DISK_FILE* file, uint32 FsInformationClass, uint32 Length, STREAM* input);
-boolean disk_file_query_directory(DISK_FILE* file, uint32 FsInformationClass, uint8 InitialQuery,
+bolean disk_file_seek(DISK_FILE* file, uint64 Offset);
+bolean disk_file_read(DISK_FILE* file, uint8* buffer, uint32* Length);
+bolean disk_file_write(DISK_FILE* file, uint8* buffer, uint32 Length);
+bolean disk_file_query_information(DISK_FILE* file, uint32 FsInformationClass, STREAM* output);
+bolean disk_file_set_information(DISK_FILE* file, uint32 FsInformationClass, uint32 Length, STREAM* input);
+bolean disk_file_query_directory(DISK_FILE* file, uint32 FsInformationClass, uint8 InitialQuery,
 	const char* path, STREAM* output);
 
 #endif /* __DISK_FILE_H */

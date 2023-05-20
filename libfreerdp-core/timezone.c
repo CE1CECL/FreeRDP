@@ -49,7 +49,7 @@ struct _TIME_ZONE_ENTRY
 {
 	const char* Id;
 	uint32 Bias;
-	boolean SupportsDST;
+	bolean SupportsDST;
 	const char* DisplayName;
 	const char* StandardName;
 	const char* DaylightName;
@@ -1594,7 +1594,7 @@ char* rdp_get_unix_timezone_identifier()
 	return tzid;
 }
 
-boolean match_unix_timezone_identifier_with_list(const char* tzid, const char* list)
+bolean match_unix_timezone_identifier_with_list(const char* tzid, const char* list)
 {
 	char* p;
 	char* list_copy;
@@ -1763,7 +1763,7 @@ void rdp_get_client_time_zone(STREAM* s, rdpSettings* settings)
  * @param settings settings
  */
 
-boolean rdp_read_client_time_zone(STREAM* s, rdpSettings* settings)
+bolean rdp_read_client_time_zone(STREAM* s, rdpSettings* settings)
 {
 	char* str = NULL;
 	TIME_ZONE_INFO* clientTimeZone;

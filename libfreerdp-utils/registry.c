@@ -27,7 +27,7 @@ static const char registry_file[] = "config.txt";
 static REG_SECTION global[] =
 {
 	{ REG_TYPE_SECTION, "global",			0,  NULL },
-	{ REG_TYPE_BOOLEAN, "fast_path",		1,  "1" },
+	{ REG_TYPE_BOLEAN, "fast_path",		1,  "1" },
 	{ REG_TYPE_STRING,  "resolution",		8,  "1024x768" },
 	{ REG_TYPE_INTEGER, "performance_flags",	4,  "0xFFFF" },
 	{ REG_TYPE_NONE,    "",				0,  NULL }

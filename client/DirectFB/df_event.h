@@ -23,6 +23,6 @@
 #include "dfreerdp.h"
 
 void df_keyboard_init(void);
-boolean df_event_process(freerdp* instance, DFBEvent* event);
+bolean df_event_process(freerdp* instance, DFBEvent* event);
 
 #endif /* __DF_EVENT_H */

@@ -39,7 +39,7 @@
 
 /* Tag - bits 5 to 1 */
 #define BER_TAG_MASK		0x1F
-#define BER_TAG_BOOLEAN		0x01
+#define BER_TAG_BOLEAN		0x01
 #define BER_TAG_INTEGER		0x02
 #define BER_TAG_BIT_STRING	0x03
 #define BER_TAG_OCTET_STRING	0x04
@@ -54,30 +54,30 @@ void ber_read_length(STREAM* s, int* length);
 int ber_write_length(STREAM* s, int length);
 int _ber_skip_length(int length);
 int ber_get_content_length(int length);
-boolean ber_read_universal_tag(STREAM* s, uint8 tag, boolean pc);
-void ber_write_universal_tag(STREAM* s, uint8 tag, boolean pc);
-boolean ber_read_application_tag(STREAM* s, uint8 tag, int* length);
+bolean ber_read_universal_tag(STREAM* s, uint8 tag, bolean pc);
+void ber_write_universal_tag(STREAM* s, uint8 tag, bolean pc);
+bolean ber_read_application_tag(STREAM* s, uint8 tag, int* length);
 void ber_write_application_tag(STREAM* s, uint8 tag, int length);
-boolean ber_read_application_tag(STREAM* s, uint8 tag, int* length);
-boolean ber_read_enumerated(STREAM* s, uint8* enumerated, uint8 count);
+bolean ber_read_application_tag(STREAM* s, uint8 tag, int* length);
+bolean ber_read_enumerated(STREAM* s, uint8* enumerated, uint8 count);
 void ber_write_enumerated(STREAM* s, uint8 enumerated, uint8 count);
-boolean ber_read_contextual_tag(STREAM* s, uint8 tag, int* length, boolean pc);
-int ber_write_contextual_tag(STREAM* s, uint8 tag, int length, boolean pc);
+bolean ber_read_contextual_tag(STREAM* s, uint8 tag, int* length, bolean pc);
+int ber_write_contextual_tag(STREAM* s, uint8 tag, int length, bolean pc);
 int ber_skip_contextual_tag(int length);
-boolean ber_read_sequence_tag(STREAM* s, int* length);
+bolean ber_read_sequence_tag(STREAM* s, int* length);
 int ber_write_sequence_tag(STREAM* s, int length);
 int ber_skip_sequence(int length);
 int ber_skip_sequence_tag(int length);
-boolean ber_read_bit_string(STREAM* s, int* length, uint8* padding);
-boolean ber_read_octet_string(STREAM* s, int* length);
+bolean ber_read_bit_string(STREAM* s, int* length, uint8* padding);
+bolean ber_read_octet_string(STREAM* s, int* length);
 void ber_write_octet_string(STREAM* s, const uint8* oct_str, int length);
 int ber_write_octet_string_tag(STREAM* s, int length);
 int ber_skip_octet_string(int length);
-boolean ber_read_boolean(STREAM* s, boolean* value);
-void ber_write_boolean(STREAM* s, boolean value);
-boolean ber_read_integer(STREAM* s, uint32* value);
+bolean ber_read_bolean(STREAM* s, bolean* value);
+void ber_write_bolean(STREAM* s, bolean value);
+bolean ber_read_integer(STREAM* s, uint32* value);
 int ber_write_integer(STREAM* s, uint32 value);
-boolean ber_read_integer_length(STREAM* s, int* length);
+bolean ber_read_integer_length(STREAM* s, int* length);
 int ber_skip_integer(uint32 value);
 
 #endif /* __BER_H */

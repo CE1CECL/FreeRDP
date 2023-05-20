@@ -214,7 +214,7 @@ static int audin_send_open_reply_pdu(IWTSVirtualChannelCallback* pChannelCallbac
 	return error;
 }
 
-static boolean audin_receive_wave_data(uint8* data, int size, void* user_data)
+static bolean audin_receive_wave_data(uint8* data, int size, void* user_data)
 {
 	int error;
 	STREAM* out;
@@ -431,7 +431,7 @@ static void audin_register_device_plugin(IWTSPlugin* pPlugin, IAudinDevice* devi
 	audin->device = device;
 }
 
-static boolean audin_load_device_plugin(IWTSPlugin* pPlugin, const char* name, RDP_PLUGIN_DATA* data)
+static bolean audin_load_device_plugin(IWTSPlugin* pPlugin, const char* name, RDP_PLUGIN_DATA* data)
 {
 	char* fullname;
 	PFREERDP_AUDIN_DEVICE_ENTRY entry;
@@ -466,9 +466,9 @@ static boolean audin_load_device_plugin(IWTSPlugin* pPlugin, const char* name, R
 	return true;
 }
 
-static boolean audin_process_plugin_data(IWTSPlugin* pPlugin, RDP_PLUGIN_DATA* data)
+static bolean audin_process_plugin_data(IWTSPlugin* pPlugin, RDP_PLUGIN_DATA* data)
 {
-	boolean ret;
+	bolean ret;
 	AUDIN_PLUGIN* audin = (AUDIN_PLUGIN*) pPlugin;
 	RDP_PLUGIN_DATA default_data[2] = { { 0 }, { 0 } };
 

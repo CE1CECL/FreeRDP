@@ -29,13 +29,13 @@
 typedef void (*psPeerContextNew)(freerdp_peer* client, rdpContext* context);
 typedef void (*psPeerContextFree)(freerdp_peer* client, rdpContext* context);
 
-typedef boolean (*psPeerInitialize)(freerdp_peer* client);
-typedef boolean (*psPeerGetFileDescriptor)(freerdp_peer* client, void** rfds, int* rcount);
-typedef boolean (*psPeerCheckFileDescriptor)(freerdp_peer* client);
+typedef bolean (*psPeerInitialize)(freerdp_peer* client);
+typedef bolean (*psPeerGetFileDescriptor)(freerdp_peer* client, void** rfds, int* rcount);
+typedef bolean (*psPeerCheckFileDescriptor)(freerdp_peer* client);
 typedef void (*psPeerDisconnect)(freerdp_peer* client);
-typedef boolean (*psPeerCapabilities)(freerdp_peer* client);
-typedef boolean (*psPeerPostConnect)(freerdp_peer* client);
-typedef boolean (*psPeerActivate)(freerdp_peer* client);
+typedef bolean (*psPeerCapabilities)(freerdp_peer* client);
+typedef bolean (*psPeerPostConnect)(freerdp_peer* client);
+typedef bolean (*psPeerActivate)(freerdp_peer* client);
 
 typedef int (*psPeerSendChannelData)(freerdp_peer* client, int channelId, uint8* data, int size);
 typedef int (*psPeerReceiveChannelData)(freerdp_peer* client, int channelId, uint8* data, int size, int flags, int total_size);

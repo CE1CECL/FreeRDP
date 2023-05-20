@@ -70,24 +70,24 @@ struct xf_window
 	int width;
 	int height;
 	Window handle;
-	boolean fullscreen;
-	boolean decorations;
+	bolean fullscreen;
+	bolean decorations;
 	rdpWindow* window;
-	boolean is_mapped;
-	boolean is_transient;
+	bolean is_mapped;
+	bolean is_transient;
 	xfLocalMove local_move;
 };
 
 void xf_ewmhints_init(xfInfo* xfi);
 
-boolean xf_GetCurrentDesktop(xfInfo* xfi);
-boolean xf_GetWorkArea(xfInfo* xfi);
+bolean xf_GetCurrentDesktop(xfInfo* xfi);
+bolean xf_GetWorkArea(xfInfo* xfi);
 
-void xf_SetWindowFullscreen(xfInfo* xfi, xfWindow* window, boolean fullscreen);
-void xf_SetWindowDecorations(xfInfo* xfi, xfWindow* window, boolean show);
+void xf_SetWindowFullscreen(xfInfo* xfi, xfWindow* window, bolean fullscreen);
+void xf_SetWindowDecorations(xfInfo* xfi, xfWindow* window, bolean show);
 void xf_SetWindowUnlisted(xfInfo* xfi, xfWindow* window);
 
-xfWindow* xf_CreateDesktopWindow(xfInfo* xfi, char* name, int width, int height, boolean decorations);
+xfWindow* xf_CreateDesktopWindow(xfInfo* xfi, char* name, int width, int height, bolean decorations);
 void xf_ResizeDesktopWindow(xfInfo* xfi, xfWindow* window, int width, int height);
 
 xfWindow* xf_CreateWindow(xfInfo* xfi, rdpWindow* wnd, int x, int y, int width, int height, uint32 id);
@@ -98,7 +98,7 @@ void xf_SetWindowRects(xfInfo* xfi, xfWindow* window, RECTANGLE_16* rects, int n
 void xf_SetWindowVisibilityRects(xfInfo* xfi, xfWindow* window, RECTANGLE_16* rects, int nrects);
 void xf_SetWindowStyle(xfInfo* xfi, xfWindow* window, uint32 style, uint32 ex_style);
 void xf_UpdateWindowArea(xfInfo* xfi, xfWindow* window, int x, int y, int width, int height);
-boolean xf_IsWindowBorder(xfInfo* xfi, xfWindow* xfw, int x, int y);
+bolean xf_IsWindowBorder(xfInfo* xfi, xfWindow* xfw, int x, int y);
 void xf_DestroyWindow(xfInfo* xfi, xfWindow* window);
 
 void xf_SetWindowMinMaxInfo(xfInfo* xfi, xfWindow* window, int maxWidth, int maxHeight,
