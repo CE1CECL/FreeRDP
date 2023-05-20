@@ -116,7 +116,7 @@ if(WITH_MANPAGES)
 	endif()
 endif(WITH_MANPAGES)
 
-set(XSHM_FEATURE_TYPE "REQUIRED")
+set(XSHM_FEATURE_TYPE "RECOMMENDED")
 set(XSHM_FEATURE_PURPOSE "X11 shared memory")
 set(XSHM_FEATURE_DESCRIPTION "X11 shared memory extension")
 

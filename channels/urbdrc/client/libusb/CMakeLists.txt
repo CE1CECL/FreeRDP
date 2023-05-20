@@ -27,7 +27,7 @@ set(${MODULE_PREFIX}_SRCS
 
 include_directories(..)
 
-find_package(libusb-1.0 REQUIRED)
+find_package(libusb-1.0 RECOMMENDED)
 
 add_channel_client_subsystem_library(${MODULE_PREFIX} ${MODULE_NAME} ${CHANNEL_NAME} "" TRUE "")
 

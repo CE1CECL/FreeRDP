@@ -31,9 +31,9 @@ set(${MODULE_PREFIX}_SRCS
 
 include_directories(..)
 
-find_package(UDev REQUIRED)
-find_package(UUID REQUIRED)
-find_package(DbusGlib REQUIRED)
+find_package(UDev RECOMMENDED)
+find_package(UUID RECOMMENDED)
+find_package(DbusGlib RECOMMENDED)
 
 add_channel_client_library(${MODULE_PREFIX} ${MODULE_NAME} ${CHANNEL_NAME} TRUE "DVCPluginEntry")
 
