@@ -270,9 +270,9 @@ endif()
 
 set(CMAKE_THREAD_PREFER_PTHREAD TRUE)
 
-if(NOT IOS AND NOT ANDROID)
-	find_package(Threads RECOMMENDED)
-endif()
+#if(NOT IOS AND NOT ANDROID)
+#	find_package(Threads RECOMMENDED)
+#endif()
 
 if(UNIX OR CYGWIN)
 	check_include_files(sys/eventfd.h HAVE_EVENTFD_H)
