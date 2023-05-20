@@ -18,7 +18,7 @@
 # limitations under the License.
 
 set(CMAKE_THREAD_PREFER_PTHREAD)
-find_required_package(Threads)
+find_suggested_package(Threads)
 
 set(FREERDP_UTILS_SRCS
 	args.c

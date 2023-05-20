@@ -102,19 +102,19 @@ check_include_files(inttypes.h HAVE_INTTYPES_H)
 check_struct_has_member("struct tm" tm_gmtoff time.h HAVE_TM_GMTOFF)
 
 # Libraries that we have a hard dependency on
-find_required_package(OpenSSL)
+find_suggested_package(OpenSSL)
 
 if(NOT WIN32)
-	find_required_package(ZLIB)
-	find_optional_package(PulseAudio)
-	find_optional_package(PCSC)
+	find_suggested_package(ZLIB)
+	find_suggested_package(PulseAudio)
+	find_suggested_package(PCSC)
 	find_suggested_package(Cups)
 
 	if(NOT APPLE)
 		find_suggested_package(FFmpeg)
 		find_suggested_package(ALSA)
 	else(NOT APPLE)
-		find_optional_package(FFmpeg)
+		find_suggested_package(FFmpeg)
 	endif()
 endif()
 
@@ -139,7 +139,7 @@ configure_file(${CMAKE_CURRENT_SOURCE_DIR}/freerdp.pc.in ${CMAKE_CURRENT_BINARY_
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/freerdp.pc DESTINATION ${CMAKE_INSTALL_LIBDIR}/pkgconfig)
 
 # Build CUnit
-find_optional_package(CUnit)
+find_suggested_package(CUnit)
 if(WITH_CUNIT)
    enable_testing()
    add_subdirectory(cunit)
@@ -169,7 +169,7 @@ if(WITH_CLIENT)
 	add_subdirectory(client)
 endif()
 
-option(WITH_SERVER "Build server binaries" OFF)
+option(WITH_SERVER "Build server binaries" ON)
 if(WITH_SERVER)
 	add_subdirectory(server)
 endif()

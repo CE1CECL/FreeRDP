@@ -30,7 +30,7 @@ if(NOT WIN32)
 	endif()
 
 	# Build DirectFB Client
-	find_optional_package(DirectFB)
+	find_suggested_package(DirectFB)
 	if(WITH_DIRECTFB)
 		add_subdirectory(DirectFB)
 	endif()
